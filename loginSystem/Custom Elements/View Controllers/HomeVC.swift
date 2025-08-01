@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
     // MARK: - Selectors
     
     @objc private func didTapLogout() {
-        
+        dismiss(animated: true)
     }
 
 }
