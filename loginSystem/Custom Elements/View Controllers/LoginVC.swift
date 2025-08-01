@@ -24,14 +24,19 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
-    
 
+    
+    // MARK:  - UI Setup
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -81,5 +86,22 @@ class LoginVC: UIViewController {
             forgotPasswordButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
         ])
     }
-
+    
+    // MARK: - Selectors
+    
+    @objc private func didTapSignIn() {
+        let vc = HomeVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    @objc private func didTapNewUser() {
+        let vc = RegisterVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func didTapForgotPassword() {
+        let vc = ForgotPasswordVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
