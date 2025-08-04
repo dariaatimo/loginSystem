@@ -20,8 +20,8 @@ class ForgotPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        resetPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        print("Button appeared")
+        resetPasswordButton.addTarget(self, action: #selector(didTapResetPassword), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,9 +61,9 @@ class ForgotPasswordVC: UIViewController {
     
     // MARK: - Selectors
     
-    @objc private func didTapForgotPassword() {
+    @objc private func didTapResetPassword() {
         guard let email = emailTextField.text, !email.isEmpty else { return }
-        
+
         // TODO: Email validation
         
     }
