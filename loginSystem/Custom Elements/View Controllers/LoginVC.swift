@@ -35,7 +35,6 @@ class LoginVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
 
-    
     // MARK:  - UI Setup
     private func setupUI() {
         view.backgroundColor = .systemBackground
